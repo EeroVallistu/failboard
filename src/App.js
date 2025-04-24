@@ -5,6 +5,9 @@ import SignUp from './components/auth/SignUp';
 import Login from './pages/Login';
 import TeacherDashboard from './pages/TeacherDashboard';
 import StudentDashboard from './pages/StudentDashboard';
+import ClassesList from './pages/ClassesList';
+import ClassDetail from './pages/ClassDetail';
+import EditClassForm from './pages/EditClassForm';
 import { isAuthenticated, getCurrentUser } from './services/authService';
 import './App.css';
 
@@ -68,6 +71,30 @@ function App() {
             element={
               <TeacherRoute>
                 <TeacherDashboard />
+              </TeacherRoute>
+            } 
+          />
+          <Route 
+            path="/teacher/classes" 
+            element={
+              <TeacherRoute>
+                <ClassesList />
+              </TeacherRoute>
+            } 
+          />
+          <Route 
+            path="/teacher/classes/:classId" 
+            element={
+              <TeacherRoute>
+                <ClassDetail />
+              </TeacherRoute>
+            } 
+          />
+          <Route 
+            path="/teacher/classes/:classId/edit" 
+            element={
+              <TeacherRoute>
+                <EditClassForm />
               </TeacherRoute>
             } 
           />
