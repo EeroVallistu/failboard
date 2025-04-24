@@ -1,70 +1,135 @@
-# Getting Started with Create React App
+# ClassManager Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web application for teachers to create classes and manage students, built with React, Node.js, SQLite, and plain HTML/CSS.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+ClassManager is designed to help teachers organize their classes and students. Teachers can sign up, create classes, add students, track attendance, create assignments, and record grades.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- User authentication (signup, login)
+- Class creation and management
+- Student management
+- Attendance tracking
+- Assignment creation
+- Grade management
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+- **Frontend**: React, HTML, CSS
+- **Backend**: Node.js, Express
+- **Database**: SQLite
+- **Authentication**: JWT (JSON Web Tokens)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Structure
 
-### `npm run build`
+The project is organized into two main directories:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `/client`: React frontend application
+- `/server`: Node.js backend API
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Backend Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Navigate to the server directory:
+   ```
+   cd server
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-## Learn More
+3. Start the server:
+   ```
+   npm run dev
+   ```
+   
+   The server will run on http://localhost:5000
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Frontend Setup
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Navigate to the client directory:
+   ```
+   cd client
+   ```
 
-### Code Splitting
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. Start the development server:
+   ```
+   npm start
+   ```
 
-### Analyzing the Bundle Size
+   The application will open in your browser at http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## API Endpoints
 
-### Making a Progressive Web App
+### Authentication
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- `POST /api/auth/register` - Register a new user
+- `POST /api/auth/login` - Login user
 
-### Advanced Configuration
+## Database Schema
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The application uses a SQLite database with the following tables:
 
-### Deployment
+- **users**: Store user information (teachers)
+- **classes**: Store class information
+- **students**: Store student information
+- **attendance**: Track student attendance
+- **assignments**: Store assignment information
+- **grades**: Store student grades
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Development
 
-### `npm run build` fails to minify
+### Backend Development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The backend uses Express.js framework with the following structure:
+
+- `server.js`: Entry point of the application
+- `/config`: Configuration files
+- `/controllers`: Request handlers
+- `/routes`: API routes
+- `/services`: Business logic
+- `/middleware`: Express middleware
+- `/db`: Database files
+
+### Frontend Development
+
+The frontend uses React with the following structure:
+
+- `/src/components`: React components
+- `/src/pages`: Page components
+- `/src/services`: Service functions for API calls
+- `/src/utils`: Utility functions
+
+## Authentication Flow
+
+1. User signs up with username, password, email, and full name
+2. Server validates input, hashes password, and stores user in database
+3. User can then log in with username and password
+4. Server validates credentials and issues a JWT token
+5. Client stores token in localStorage
+6. Token is included in API requests for authenticated routes
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contributors
+
+- Your Name
