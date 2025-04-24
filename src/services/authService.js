@@ -22,6 +22,12 @@ export const registerUser = async (userData) => {
       throw new Error(data.message || 'Registration failed');
     }
     
+    // Store the token and user data for auto-login if they are present
+    if (data.token) {
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+    }
+    
     return { success: true, ...data };
   } catch (error) {
     console.error('Registration error:', error);
@@ -69,6 +75,9 @@ export const loginUser = async (credentials) => {
 export const logoutUser = () => {
   localStorage.removeItem('token');
   localStorage.removeItem('user');
+  
+  // Redirect to home page after logout
+  window.location.href = '/';
 };
 
 /**
